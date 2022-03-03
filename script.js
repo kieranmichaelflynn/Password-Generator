@@ -1,4 +1,5 @@
-// Assignment Code
+// Array of special characters to be included in password
+
 var specialCharacters = [
   '@',
   '%',
@@ -89,37 +90,39 @@ var upperCasedCharacters = [
 ];
 
 var generateBtn = document.querySelector("#generate");
-// console.log(generateBtn)
 
 // Write password to the #password input
-
 var password = document.querySelector("#password");
 
-function writePassword() {
+
+var randomCharacters = " "
+
+function writePassword(passwordLength,passwordUpper,passwordLower,passwordNumbers,passwordSpecial) {
   while(password.length < passwordLength){
 
-    var randUpper = upperCasedCharacters [Math.floor(Math.random()*password.length)];
-    var randLower = lowerCasedCharacters [Math.floor(Math.random()*password.length)];
-    var randNumber = numericCharacters [Math.floor(Math.random()*password.length)];
-    var randSpecial = specialCharacters [Math.floor(Math.random()*password.length)];
     
       if(passwordUpper){
-        password += randUpper
+        var randUpper = upperCasedCharacters [Math.floor(Math.random()*password.length)];
+        randomCharacters += randUpper
       }
       if(passwordLower){
-        password += randLower
+        var randLower = lowerCasedCharacters [Math.floor(Math.random()*password.length)];
+        randomCharacters += randLower
       }
       if(passwordNumbers){
-        password += randNumber
+        var randNumber = numericCharacters [Math.floor(Math.random()*password.length)];
+        randomCharacters += randNumber
       }
       if(passwordSpecial){
-        password += randSpecial
+        var randSpecial = specialCharacters [Math.floor(Math.random()*password.length)];
+        randomCharacters += randSpecial
       }
     }
-  password.textContent = password;
-  return;
+    password.textContent = randomCharacters;
 
-}
+  return randomCharacters;
+    
+};
 
 
 // Add event listener to generate button
@@ -139,64 +142,13 @@ function passwordSpecifications(){
     alert("Password must contain at least 1 parameter")
     return;
   }
-  // var charArray = createPassword( passwordUpper, passwordLower, passwordNumbers, passwordSpecial)
 
-  createPassword();
-}
-
-
-function createPassword(passwordUpper, passwordLower, passwordNumbers, passwordSpecial){
-  var charArray = " ";
-
-  if (passwordUpper){
-    charArray = charArray.concat(upperCasedCharacters)
-  }
-  if (passwordLower){
-    charArray = charArray.concat(lowerCasedCharacters)
-  }
-  if (passwordNumbers){
-    charArray = charArray.concat(numericCharacters)
-  }
-  if (passwordSpecial){
-    charArray = charArray.concat(specialCharacters)
-    
-  }
-  console.log(charArray);
-  writePassword()
-}
-
-let randomChar = " "
-
-while(password.length < passwordLength){
-
-var randUpper = upperCasedCharacters [Math.floor(Math.random()*password.length)];
-var randLower = lowerCasedCharacters [Math.floor(Math.random()*password.length)];
-var randNumber = numericCharacters [Math.floor(Math.random()*password.length)];
-var randSpecial = specialCharacters [Math.floor(Math.random()*password.length)];
-
-  if(passwordUpper){
-    password += randUpper
-  }
-  if(passwordLower){
-    password += randLower
-  }
-  if(passwordNumbers){
-    password += randNumber
-  }
-  if(passwordSpecial){
-    password += randSpecial
-  }
- writePassword()
-}
+  writePassword(passwordLength, passwordUpper, passwordLower, passwordNumbers, passwordSpecial);
+};
 
 
 
-//  for (let index = 0; index < password.length; index++) {
 
-//  const randomIndex = Math.floor(Math.random() * password.length);
-
-//  const randomChar = charArray[randomIndex];
-//  console.log(randomChar)
 
 
 
@@ -233,7 +185,6 @@ var randSpecial = specialCharacters [Math.floor(Math.random()*password.length)];
 //   console.log(password)
 //   // writePassword()
 //   // card-body.textContent = password
-  }
     //get randome element from arr and addd it to a password
 
 // passwordLength)
