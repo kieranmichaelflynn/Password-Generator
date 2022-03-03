@@ -95,32 +95,34 @@ var generateBtn = document.querySelector("#generate");
 var password = document.querySelector("#password");
 
 
-var randomCharacters = " "
+var generatedPassword = " "
 
 function writePassword(passwordLength,passwordUpper,passwordLower,passwordNumbers,passwordSpecial) {
-  while(password.length < passwordLength){
+
+  while(generatedPassword.length < passwordLength){
+    console.log("test")
 
     
       if(passwordUpper){
-        var randUpper = upperCasedCharacters [Math.floor(Math.random()*password.length)];
-        randomCharacters += randUpper
+        var randUpper = upperCasedCharacters [Math.floor(Math.random()*upperCasedCharacters.length)];
+        generatedPassword += randUpper
       }
       if(passwordLower){
-        var randLower = lowerCasedCharacters [Math.floor(Math.random()*password.length)];
-        randomCharacters += randLower
+        var randLower = lowerCasedCharacters [Math.floor(Math.random()*lowerCasedCharacters.length)];
+        generatedPassword += randLower
       }
       if(passwordNumbers){
-        var randNumber = numericCharacters [Math.floor(Math.random()*password.length)];
-        randomCharacters += randNumber
+        var randNumber = numericCharacters [Math.floor(Math.random()*numericCharacters.length)];
+        generatedPassword += randNumber
       }
       if(passwordSpecial){
-        var randSpecial = specialCharacters [Math.floor(Math.random()*password.length)];
-        randomCharacters += randSpecial
+        var randSpecial = specialCharacters [Math.floor(Math.random()*specialCharacters.length)];
+        generatedPassword += randSpecial
       }
     }
-    password.textContent = randomCharacters;
+    // password.textContent = generatedPassword;
 
-  return randomCharacters;
+  return generatedPassword;
     
 };
 
@@ -143,7 +145,7 @@ function passwordSpecifications(){
     return;
   }
 
-  writePassword(passwordLength, passwordUpper, passwordLower, passwordNumbers, passwordSpecial);
+  password.textContent = writePassword(passwordLength, passwordUpper, passwordLower, passwordNumbers, passwordSpecial);
 };
 
 
