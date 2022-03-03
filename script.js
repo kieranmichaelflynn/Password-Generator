@@ -82,14 +82,13 @@ var upperCasedCharacters = [
   'Z'
 ];
 
-var generateBtn = document.querySelector("#generate");
 
-// Write password to the #password input
+//Identifiers to link Javascript to ID's in HTML
+var generateBtn = document.querySelector("#generate");
 var password = document.querySelector("#password");
 
-
-
-function writePassword(passwordLength,passwordUpper,passwordLower,passwordNumbers,passwordSpecial) {
+//Function to write the password, adding arrays to suit criteria and randomly picking as per length input
+function writePassword(passwordLength, passwordUpper, passwordLower, passwordNumbers, passwordSpecial) {
   let charArr = []
 
   if(passwordUpper){
@@ -104,26 +103,21 @@ function writePassword(passwordLength,passwordUpper,passwordLower,passwordNumber
   if(passwordSpecial){
     charArr = charArr + specialCharacters
 }
-console.log("array" + charArr)
+console.log("array " + charArr)
+
 var generatedPassword = " "
+
   for(let i = 0; i < passwordLength; i++) {
     generatedPassword = generatedPassword + charArr[Math.floor(Math.random()*charArr.length)];
     }
 
-
-
-console.log("password" + generatedPassword)
-
+console.log("password " + generatedPassword)
 password.textContent = generatedPassword
-
-
-
-  return;
-    
+return;  
 };
 
 
-// Add event listener to generate button
+//Event listener to prompt user for criteria, and then start write function
 generateBtn.addEventListener("click", passwordSpecifications);
 
 function passwordSpecifications(){
