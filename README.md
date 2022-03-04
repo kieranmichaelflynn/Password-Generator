@@ -1,6 +1,6 @@
-#<Password Generator>
+# <Password Generator>
 
-##Description
+## Description
 
 - My task was to create JavaScript code to add to an online password generator so that I could randomly produce a password based on user inputed criteria
 - I was motivated by the idea of using JavaScript in such a way to be functional and accessible to users, and to be able to make complex operations simple
@@ -13,7 +13,7 @@
 To use my Password Generator, simply press the 'Generate' button and complete the prompts to make a password exactly as per your specifications
 
 
-##Access
+## Access
 
 To access my password generator, I've added these links
 
