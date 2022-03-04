@@ -92,27 +92,27 @@ function writePassword(passwordLength, passwordUpper, passwordLower, passwordNum
   let charArr = []
 
   if(passwordUpper){
-  charArr = charArr + upperCasedCharacters
-}
+  charArr = charArr.concat(upperCasedCharacters)
+  }
   if(passwordLower){
-    charArr = charArr + lowerCasedCharacters
-}
+    charArr = charArr.concat(lowerCasedCharacters)
+  }
   if(passwordNumbers){
-    charArr = charArr + numericCharacters
-}
+    charArr = charArr.concat(numericCharacters)
+  }
   if(passwordSpecial){
-    charArr = charArr + specialCharacters
-}
-console.log("array " + charArr)
+    charArr = charArr.concat(specialCharacters)
+  }
+  console.log("array " + charArr)
 
-var generatedPassword = " "
+  var generatedPassword = " "
 
   for(let i = 0; i < passwordLength; i++) {
     generatedPassword = generatedPassword + charArr[Math.floor(Math.random()*charArr.length)];
-    }
+ }
 
-console.log("password " + generatedPassword)
-password.textContent = generatedPassword
+  console.log("password " + generatedPassword)
+  password.textContent = generatedPassword
 return;  
 };
 
